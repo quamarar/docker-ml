@@ -13,8 +13,13 @@ pipeline {
          sh 'sudo docker build -t docker-ml-model -f Dockerfile .'
          }
         }
+      stage('login to ecr') {
+        steps {
+          sh 'aws ecr get-login'
       }
     }
+ }
+}
   
        
     
