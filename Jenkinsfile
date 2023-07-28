@@ -18,6 +18,11 @@ pipeline {
           sh 'aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 836350033173.dkr.ecr.us-east-1.amazonaws.com'
       }
     }
+      stage('tagging and pushing image to ecr'){
+        steps {
+          sh 'docker tag docker-ml-model:latest 836350033173.dkr.ecr.us-east-1.amazonaws.com/erp:latest'
+    }
+ }
  }
 }
   
