@@ -21,6 +21,7 @@ pipeline {
       stage('tagging and pushing image to ecr'){
         steps {
           sh 'sudo docker tag docker-ml-model:latest 836350033173.dkr.ecr.us-east-1.amazonaws.com/erp:latest'
+          sh 'sudo docker push 836350033173.dkr.ecr.us-east-1.amazonaws.com/erp:latest'
     }
  }
  }
