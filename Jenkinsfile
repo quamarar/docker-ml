@@ -4,7 +4,7 @@ pipeline {
  stages {
        stage('checkout git repository') {
           steps{
-         sh 'checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/quamarar/docker-ml.git']])'
+            checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/quamarar/docker-ml.git']])
          }
        }
        stage('build docker image') {
