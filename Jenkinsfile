@@ -5,6 +5,7 @@ pipeline {
        stage('checkout') {
          steps {
            git 'https://github.com/quamarar/docker-ml.git'
+           env.GIT_COMMIT = scmVars.GIT_COMMIT
          }
         }
       
