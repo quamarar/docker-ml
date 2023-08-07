@@ -4,8 +4,14 @@ pipeline {
  stages {
        stage('checkout') {
          steps {
-           git 'https://github.com/quamarar/docker-ml.git'
-           echo $GIT_COMMIT
+           script {
+           def scmVars = git 'https://github.com/quamarar/docker-ml.git'
+               echo "scmVars.GIT_COMMIT"
+               echo "${scmVars.GIT_COMMIT}"
+               env.GIT_COMMIT = scmVars.GIT_COMMIT
+               echo "env.GIT_COMMIT"
+               echo "${env.GIT_COMMIT}"
+           }
          }
         }
       
