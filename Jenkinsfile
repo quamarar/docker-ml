@@ -31,7 +31,7 @@ pipeline {
    
       stage('pushing to pm') {
         steps {
-          sh 'aws ssm put-parameter --name "MSIL" --type String --tags "Key=Image,Value=commit-id" --value "${GIT_COMMIT_HASH}" '
+          sh 'aws ssm put-parameter --name "MSIL" --type String --tags "Key=Image,Value=commit-id" --value "${GIT_COMMIT_HASH}" --overwrite=true'
       
     }
  }
