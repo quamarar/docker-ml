@@ -2,7 +2,7 @@
 # tain.py
 # Xavier Vasques 13/04/2021
 #Arfa
-
+#Arfa
 import platform; print(platform.platform())
 import sys; print("Python", sys.version)
 import numpy; print("NumPy", numpy.__version__)
