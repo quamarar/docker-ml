@@ -3,7 +3,7 @@
 # Xavier Vasques 13/04/2021
 #Arfa
 #Arfa
-#ccccd
+#cccce
 import platform; print(platform.platform())
 import sys; print("Python", sys.version)
 import numpy; print("NumPy", numpy.__version__)
