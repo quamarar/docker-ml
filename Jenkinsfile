@@ -3,7 +3,7 @@ pipeline {
 
 
   environment {
-    GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)   
+    GIT_COMMIT_HASH = sh (script: "git rev-parse --short HEAD", returnStdout: true)   
   }
   
  stages {
