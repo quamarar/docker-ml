@@ -15,7 +15,7 @@ pipeline {
          steps {
            script{
              GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true) 
-             echo "${GIT_COMMIT_HASH}
+             echo "${GIT_COMMIT_HASH}"
            }
          sh 'sudo docker build -t docker-ml-model:${GIT_COMMIT_HASH } -f Dockerfile . '
          }
