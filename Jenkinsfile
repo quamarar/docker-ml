@@ -17,7 +17,7 @@ pipeline {
       
        stage('build docker image') {
          steps {
-         sh 'sudo docker build -t docker-ml-model -f Dockerfile .'
+         sh 'sudo docker build -t docker-ml-model:${GIT_COMMIT_HASH} -f Dockerfile .'
          sh 'sudo docker tag docker-ml-model:${GIT_COMMIT_HASH} 836350033173.dkr.ecr.us-east-1.amazonaws.com/erp:${GIT_COMMIT_HASH} '
          }
         }
