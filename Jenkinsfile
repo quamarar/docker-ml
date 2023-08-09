@@ -13,7 +13,7 @@ pipeline {
       
        stage('build docker image') {
          steps {
-         sh 'sudo docker build  -f Dockerfile . -t docker-ml-model:${git_commit}'
+         sh 'sudo docker build -t docker-ml-model:${git_commit} -f Dockerfile . '
          }
         }
       stage('login to ecr') {
