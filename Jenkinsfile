@@ -1,9 +1,6 @@
 pipeline {
   agent any
 
-      environment {
-        tag = sh(returnstdout: true, script: "git rev-parse --short=10 head").trim()
-    }
 
  stages {
        stage('checkout') {
