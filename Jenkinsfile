@@ -1,6 +1,10 @@
 pipeline {
   agent any
-  
+
+
+  environment {
+    GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)   
+  }
   
  stages {
        stage('checkout') {
@@ -13,10 +17,6 @@ pipeline {
       
        stage('build docker image') {
          steps {
-           script{
-             GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true) 
-             echo "${GIT_COMMIT_HASH}"
-           }
          sh 'sudo docker build -t docker-ml-model -f Dockerfile .'
          sh 'sudo docker tag docker-ml-model:${GIT_COMMIT_HASH} 836350033173.dkr.ecr.us-east-1.amazonaws.com/erp:${GIT_COMMIT_HASH} '
          }
